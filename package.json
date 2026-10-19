@@ -1,0 +1,38 @@
+{
+  "name": "gemini-cartesia-voice-agent",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Browser voice agent: Gemini Live listens and thinks, Cartesia Sonic speaks.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "tsx watch --clear-screen=false src/server/index.ts",
+    "build": "vite build && tsc -p tsconfig.build.json",
+    "start": "NODE_ENV=production node dist/server/index.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p src/web/tsconfig.json --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "smoke": "tsx scripts/smoke.ts",
+    "verify": "npm run typecheck && npm run lint && npm test && npm run build"
+  },
+  "dependencies": {
+    "@cartesia/cartesia-js": "^4.2.0",
+    "@google/genai": "^2.30.0",
+    "dotenv": "^18.0.8",
+    "ws": "^8.22.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^26.6.5",
+    "@types/ws": "^8.18.2",
+    "eslint": "^10.13.0",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.71.2",
+    "vite": "^8.3.4",
+    "vitest": "^5.0.5"
+  }
+}
